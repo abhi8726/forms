@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            background-color: brown;
+            text-align: center;
+            padding: 20px;
+        }
+        h2,h3{
+            text-align: center;
+        }
+
+    </style>
+    
+    
+</head>
+<body >
+    <div >
+        <h1>Your Payment has been Successfull!!</h1>
+        <br>
+        <h2>DETAILS</h2>
+        <h3>
+            
+                
+            <p class="details">Name: <%= data.name %></p>
+            <p class="details">Address: <%= data.Address%></p>
+            <p class="details">Phone Number:<%= data.number%></p>
+            <p class="details">Pincode:<%= data.pincode%></p>
+            <p class="details">Cardtype:<%= data.cardtype%></p>
+            <p class="details">Card Number:<%= data.cardnumber%></p>
+            <p class="details">Expiry Date:<%= data.expiry%></p>
+            <p class="details">CVV:<%= data.cvv%></p>
+
+            
+        </h3>
+
+    </div>
+</body>
+</html>

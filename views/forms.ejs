@@ -1,0 +1,169 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Payment Form</title>
+    <style>
+        @media all and (min-width: 800px) {
+    body{
+        
+        color: rgb(22, 33, 180);
+        
+        } 
+        
+    }
+
+    .main{
+    
+    background-color: rgb(170, 175, 218);
+    padding: 40px;
+    
+}
+
+.container{
+    
+    padding: 20px 20px;
+    
+}
+
+h1{
+    text-align: center;
+    text-shadow:2px 2px #a3aabd;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+h2{
+    text-align: center;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="pincode"],
+input[type="number"],textarea,#cardtype,
+input[type="date"],input[type="password"]
+{
+    width: 100%;
+    padding: 10px 1px;
+    border: 1px solid green;
+    border-radius: 2px;
+    margin: 10px;
+}
+
+fieldset{
+    border: 1px solid green;
+    border-radius: 3px;
+    
+    
+}
+
+.button{
+    width: 100%;
+    padding: 10px ;
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(133, 75, 118);
+}
+input[type="submit"]:hover{
+    color: rgb(58, 11, 134);
+    cursor: pointer;
+}
+
+    </style>
+
+    <script src="app.js"></script>
+</head>
+
+
+<body class="main">
+    
+    <div class="container">
+        <form  onsubmit ="return showMsg()" action="/blogs" method="POST">
+        <h1>Payment Form</h1>
+        <hr>
+        <h2>User Information</h2>
+        <p>Name: <input id="name" type="text" name="name" placeholder="Abhishek Baudh" required ><label id="lbluser" style="color: crimson; visibility: hidden;" >Invalid</label></p>
+        
+        <fieldset>
+            <legend>Gender</legend>
+            <p>
+                Male: <input type="Radio" name="Gender">
+                Female: <input type="Radio" name="Gender">
+            </p>
+        </fieldset>
+        <p>Address: <textarea name="Address" id="" cols="30" rows="3" placeholder="D-605 Cosmos Golden Heights, Ghaziabad"></textarea></p>
+        <p>Phone Number: <input type="number" name="number" id="phone" placeholder="8726607065"></p>
+        <p>Pincode: <input type="number" name="pincode" placeholder="201016" id="pincode"></p>
+        <hr>
+        <h2>Payment Information</h2>
+        
+        <p>
+            Card Type: 
+            <select name="cardtype" id="cardtype" >
+                <option value="">--Select Card Type</option>
+                <option value="visa">  Visa</option>
+                <option value="rupay">Rupay</option>
+                <option value="mastercard">mastercard</option>
+            </select>
+            
+        </p>
+        <p>
+            Card Number: <input type="number" name="cardnumber" id="number" placeholder="1111-2222-3333-4444">
+        </p>
+        <p>Expiry Date: <input type="date" name="expiry" id="expiry"></p>
+        <p>CVV: <input type="password" name="cvv"></p>
+
+        <button class="button"  type="submit" name="submit">Pay Now</button>
+        
+    </form>
+    
+    </div>
+    
+    <script >
+        function showMsg(){
+    
+    var name=document.getElementById("name");
+    var phone=document.getElementById("phone");
+    //var regx=/E00/;
+    var regxp=/^[7-9]\d{9}$/;
+    
+    
+    // if(regx.test(name.value))
+    // {
+    //     alert("Valid Username");
+
+    // }
+    // else{
+    //     alert("Invalid UserName");
+    //     return false;
+    // }
+    if(name.value.trim() =="")
+    {
+        name.style.border=" solid 2px red";
+        var lbluser=document.getElementById("lbluser");
+        lbluser.style.visibility="visible"
+        alert("Blank Username");
+        return false;
+    }
+    else if(name.value.trim().length<5)
+    {
+        alert("name too short");
+        return false;
+    }
+
+    else if(regxp.test(phone.value))
+        {
+            alert("Valid Phone Number");
+        }
+    else
+    {
+        alert("Invalid Number");
+        return false;
+    }
+
+}
+    </script> 
+</body>
+</html>
